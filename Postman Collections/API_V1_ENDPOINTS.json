@@ -217,6 +217,19 @@
 				}
 			],
 			"id": "b2b6118f-732a-4fed-b958-00746796a352"
+		},
+		{
+			"name": "Home",
+			"id": "d450c096-9614-4019-b369-dd9bf7ee7f57",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://node-express-todo-app.onrender.com"
+			},
+			"response": []
 		}
 	]
 }
