@@ -44,7 +44,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete all Todos",
+					"name": "Delete all my Todos",
 					"id": "42d96237-da6e-4179-9529-d6955f4e74dc",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
