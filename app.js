@@ -4,6 +4,7 @@ import userRouter from './routes/users.js';
 import todoRouter from './routes/todo.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+
 config({
     path: "./config.env"
 })
@@ -24,6 +25,13 @@ app.use(cors({
 // creating api endpoints using routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/todos',todoRouter);
+
+app.get('/' , (req, res) => {
+    return res.json({
+        success: true,
+        message: "Welcome to Todo's Backend",
+    })
+})
 
 
 // Handling error
