@@ -31,7 +31,7 @@
 					"response": []
 				},
 				{
-					"name": "Get all Todos",
+					"name": "Get my Todos",
 					"id": "816893f3-ed52-4aed-b874-01309a34fc82",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
