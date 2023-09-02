@@ -103,19 +103,6 @@
 						"url": "http://localhost:5000/api/v1/todos/checktodo/64f3418899a3941d240cf493"
 					},
 					"response": []
-				},
-				{
-					"name": "Logout a User",
-					"id": "51e9409b-73b8-4cb1-9538-9c9af4823add",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": "http://localhost:5000/api/v1/users/logout"
-					},
-					"response": []
 				}
 			],
 			"id": "219c75b5-a338-442b-850c-5a7cc23d4aa4"
@@ -199,6 +186,19 @@
 							}
 						},
 						"url": "https://node-express-todo-app.onrender.com/api/v1/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout a User",
+					"id": "51e9409b-73b8-4cb1-9538-9c9af4823add",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/users/logout"
 					},
 					"response": []
 				},
