@@ -1,10 +1,8 @@
 import { Router } from "express";
-import { createUser, deleteUser, getAllUsers, getUser, loginUser, updateUser } from "../controllers/users.js";
+import { createUser, deleteUser, getUser, loginUser, logoutUser, updateUser } from "../controllers/users.js";
 import { isAuthenticated } from "../middleware/auth.js";
 
 const router = Router();
-
-router.get('/all', getAllUsers);
 
 router.post('/createuser', createUser);
 
@@ -15,6 +13,8 @@ router.get('/getuser', isAuthenticated, getUser);
 router.put('/updateuser', isAuthenticated, updateUser);
 
 router.delete('/deleteuser', isAuthenticated, deleteUser);
+
+router.get("/logout", isAuthenticated, logoutUser);
 
 
 export default router;

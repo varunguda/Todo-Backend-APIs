@@ -3,101 +3,122 @@ import { ErrorHandler } from "./users.js";
 
 
 export const getMyTodos = async (req, res, next) => {
+    try {
+        const todos = await Todos.find({ user: req.user._id });
     
-    const todos = await Todos.find({ user: req.user._id });
-
-    return res.json({
-        success: true,
-        todos
-    })
+        return res.json({
+            success: true,
+            todos
+        })
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))
+    }
 }
 
 
 
 export const addTodo = async (req, res, next) => {
+    try {
+        const { title, desc } = req.body;
     
-    const { title, desc } = req.body;
-
-    await Todos.create({ title, desc, user: req.user._id,})
-
-    return res.status(201).json({
-        success: true,
-        message: "Successfully created your todo!"
-    })
-
+        await Todos.create({ title, desc, user: req.user._id,})
+    
+        return res.status(201).json({
+            success: true,
+            message: "Successfully created your todo!"
+        })
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))
+    }
 }
 
 
 
 export const deleteTodo = async (req, res, next) => {
+    try {
 
-    const { id } = req.params;
-
-    let todo = await Todos.findById(id);
-    if(!todo){
-        return next(new ErrorHandler("Todo not found!", 400));
-    }
+        const { id } = req.params;
     
-    if(todo.user.toString() !== req.user._id.toString()){
-        return next(new ErrorHandler("You are not allowed to perform this action!", 403 ))
-    }
-
-    await Todos.deleteOne({_id: todo._id});
-
-    return res.json({
-        success: true,
-        message: "Todo removed successfully!"
-    })
+        let todo = await Todos.findById(id);
+        if(!todo){
+            return next(new ErrorHandler("Todo not found!", 400));
+        }
+        
+        if(todo.user.toString() !== req.user._id.toString()){
+            return next(new ErrorHandler("You are not allowed to perform this action!", 403 ))
+        }
     
+        await Todos.deleteOne({_id: todo._id});
+    
+        return res.json({
+            success: true,
+            message: "Todo removed successfully!"
+        })
+
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))
+    }    
 }
 
 
 
 export const deleteAllTodos = async ( req, res, next ) => {
-    
-    await Todos.deleteMany({ user: req.user._id });
+    try {
+        
+        await Todos.deleteMany({ user: req.user._id });
+        
+        return res.json({
+            success: true,
+            message: `Successfully deleted all the todos of ${ req.user.name }`
+        })   
 
-    // if(!removedTodos)
-    
-    return res.json({
-        success: true,
-        message: `Successfully deleted all the todos of ${ req.user.name }`
-    })   
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))
+    }
 }
 
 
 
 export const updateTodo = async ( req, res, next) => {
-    const { id } = req.params;
-    const { title, desc } = req.body;
-
-    const todo = await Todos.findByIdAndUpdate(id, { title, desc });
-
-    if(!todo){
-        return next(new Error("Todo not found!", 400));
+    try {
+    
+        const { id } = req.params;
+        const { title, desc } = req.body;
+    
+        const todo = await Todos.findByIdAndUpdate(id, { title, desc });
+    
+        if(!todo){
+            return next(new Error("Todo not found!", 400));
+        }
+    
+        return res.json({
+            success: true,
+            message: "Todo updated successfully!"
+        })
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))
     }
-
-    return res.json({
-        success: true,
-        message: "Todo updated successfully!"
-    })
 }
 
 
 
 export const checkTodo = async (req, res, next) => {
-    const { id } = req.params;
-
-    const todo = await Todos.findById(id);
-
-    if(!todo) return next(new ErrorHandler("Todo not found!", 400));
-
-    todo.isCompleted = !todo.isCompleted;
-
-    todo.save();
-
-    return res.json({
-        success: true,
-        message: `Todo ${todo.isCompleted ? "Completed" : "Incomplete"}!` 
-    })
+    try {
+        const { id } = req.params;
+    
+        const todo = await Todos.findById(id);
+    
+        if(!todo) return next(new ErrorHandler("Todo not found!", 400));
+    
+        todo.isCompleted = !todo.isCompleted;
+    
+        todo.save();
+    
+        return res.json({
+            success: true,
+            message: `Todo ${todo.isCompleted ? "Completed" : "Incomplete"}!` 
+        })
+    } catch (error) {
+        return next(new ErrorHandler("An error occurred while processing your request!", 500 ))        
+    }
 }
