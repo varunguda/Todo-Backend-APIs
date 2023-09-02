@@ -121,7 +121,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"venis\",\r\n    \"email\": \"venis@gmail.com\",\r\n    \"password\": \"tattadaa\"\r\n}",
+							"raw": "{\r\n    \"name\": \"veer venis\",\r\n    \"email\": \"veervenis@gmail.com\",\r\n    \"password\": \"tattadaa\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
