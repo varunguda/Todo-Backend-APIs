@@ -85,11 +85,15 @@ export const updateTodo = async ( req, res, next) => {
         const { id } = req.params;
         const { title, desc } = req.body;
 
-        const todo = await Todos.findByIdAndUpdate(id, { title, desc });
+        const todo = await Todos.findById(id);
     
         if(!todo){
             return next(new Error("Todo not found!", 400));
         }
+
+        todo.title = title,
+        todo.desc = desc
+        todo.save()
     
         return res.json({
             success: true,
