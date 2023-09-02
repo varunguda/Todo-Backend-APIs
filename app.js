@@ -1,6 +1,7 @@
 import express from 'express';
 import { config } from 'dotenv';
 import userRouter from './routes/users.js';
+import todoRouter from './routes/todo.js';
 import cookieParser from 'cookie-parser';
 
 config({
@@ -9,12 +10,16 @@ config({
 
 const app = express();
 
+
 // Using Middleware
 app.use(express.json());
 app.use(cookieParser());
 
+
 // creating api endpoints using routes
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/todos',todoRouter);
+
 
 // Handling error
 app.use((err, req, res, next)=>{

@@ -8,7 +8,7 @@ export const addCookieToken = (user, message, status, res) =>{
 
     return res.cookie("token",token, {
         httpOnly: true,
-        expires: new Date(Date.now()+15*60*100)
+        expires: new Date(Date.now()+ 30*60*100)
     }).status(status).json({
         success: true,
         message

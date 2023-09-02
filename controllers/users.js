@@ -2,12 +2,14 @@ import { Users } from "../models/user.js";
 import { addCookieToken, hashPassword, isSamePass } from "../utils/user-functions.js";
 
 
-class ErrorHandler extends Error{
+
+export class ErrorHandler extends Error{
     constructor( message = "Internal Server Error!", status = 500 ){
         super(message),
         this.status = status
     }
 }
+
 
 
 export const getAllUsers =  async(req, res, next)=>{
@@ -20,6 +22,8 @@ export const getAllUsers =  async(req, res, next)=>{
         users
     })
 }
+
+
 
 export const createUser = async (req, res, next)=>{
     const { name, email, password } = req.body;
@@ -44,6 +48,7 @@ export const createUser = async (req, res, next)=>{
 }
 
 
+
 export const loginUser = async(req, res, next) => {
 
     const { email, password } = req.body;
@@ -64,6 +69,7 @@ export const loginUser = async(req, res, next) => {
 }
 
 
+
 export const getUser = async(req, res, next)=>{
 
     return res.json({
@@ -73,14 +79,17 @@ export const getUser = async(req, res, next)=>{
 }
 
 
+
 export const deleteUser = async (req, res, next) =>{
-    
+
     await Users.findByIdAndDelete(req.user._id);
     return res.json({
         success: true,
         message: "User removed successfully!"
     })
 }
+
+
 
 export const updateUser = async (req, res, next) =>{
     const { name , email, password } = req.body;
