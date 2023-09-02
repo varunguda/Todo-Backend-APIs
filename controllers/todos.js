@@ -38,6 +38,10 @@ export const deleteTodo = async (req, res, next) => {
     try {
 
         const { id } = req.params;
+
+        if(!id){
+            return next(new ErrorHandler("Missing parameters 'id', Please try again!", 400));
+        }
     
         let todo = await Todos.findById(id);
         if(!todo){
@@ -84,6 +88,10 @@ export const updateTodo = async ( req, res, next) => {
     
         const { id } = req.params;
         const { title, desc } = req.body;
+
+        if(!id){
+            return next(new ErrorHandler("Missing parameters 'id', Please try again!", 400));
+        }
     
         const todo = await Todos.findByIdAndUpdate(id, { title, desc });
     
@@ -105,6 +113,10 @@ export const updateTodo = async ( req, res, next) => {
 export const checkTodo = async (req, res, next) => {
     try {
         const { id } = req.params;
+
+        if(!id){
+            return next(new ErrorHandler("Missing parameters 'id', Please try again!", 400));
+        }
     
         const todo = await Todos.findById(id);
     
