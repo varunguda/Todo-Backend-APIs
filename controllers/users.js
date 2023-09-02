@@ -115,7 +115,9 @@ export const updateUser = async (req, res, next) =>{
 export const logoutUser = async (req, res, next) => {
     return res.cookie("token", "", {
         httpOnly: true,
-        expires: new Date(Date.now())
+        expires: new Date(Date.now()),
+        sameSite: process.env.NODE_ENV === "DEVELOPMENT" ? "lax" : "none",
+        secure: process.env.NODE_ENV === "DEVELOPMENT" ? "false" : "true",
     }).json({
         success: true,
         message: "User Logged out successfully!"

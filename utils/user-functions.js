@@ -6,10 +6,15 @@ export const addCookieToken = (user, message, status, res) =>{
         id: user._id
     }, process.env.JWT_SECRET)
 
-    return res.cookie("token",token, {
+    return res
+    .cookie("token",token, {
         httpOnly: true,
-        expires: new Date(Date.now()+ 30*60*100)
-    }).status(status).json({
+        expires: new Date(Date.now() + 30*60*100),
+        sameSite: process.env.NODE_ENV === "DEVELOPMENT" ? "lax" : "none",
+        secure: process.env.NODE_ENV === "DEVELOPMENT" ? "false" : "true",
+    })
+    .status(status)
+    .json({
         success: true,
         message
     })
