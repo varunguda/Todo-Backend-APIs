@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "a1a323a2-57f6-45b3-b42a-83087b24f9a9",
+		"name": "Todo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Todos",
+			"item": [
+				{
+					"name": "Add a Todo",
+					"_postman_id": "acb84f2f-89bf-4f80-8500-91edbfae5217",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Thista\",\r\n    \"desc\": \"mista\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/todos/addtodo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Todos",
+					"_postman_id": "816893f3-ed52-4aed-b874-01309a34fc82",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/todos/mytodos"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete all Todos",
+					"_postman_id": "42d96237-da6e-4179-9529-d6955f4e74dc",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/todos/deletealltodos"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Todo",
+					"_postman_id": "3307aeee-824b-49ae-a0cd-9f5964f211d1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/todos/deletetodo/64f3418899a3941d240cf493"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a Todo",
+					"_postman_id": "116cbc32-c6ae-4b15-95c3-2f27976bb897",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"oniichan\",\r\n    \"desc\": \"kkkkkkkkkkkkkkkkk\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/todos/updatetodo/64f3418899a3941d240cf493"
+					},
+					"response": []
+				},
+				{
+					"name": "Check a Todo",
+					"_postman_id": "de1f1bd6-726c-4159-a21f-15c329300513",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/todos/checktodo/64f3418899a3941d240cf493"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout a User",
+					"_postman_id": "51e9409b-73b8-4cb1-9538-9c9af4823add",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/users/logout"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "219c75b5-a338-442b-850c-5a7cc23d4aa4"
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create a User",
+					"_postman_id": "f0e74104-19f7-472e-867a-e815713c9b68",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"venis\",\r\n    \"email\": \"venis@gmail.com\",\r\n    \"password\": \"tada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/users/createuser"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"_postman_id": "74943fd1-4cfd-44f3-b217-c99cc00c2215",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"venis@gmail.com\",\r\n    \"password\": \"tattada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/users/updateuser"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"_postman_id": "f7750e7e-ad62-4254-9307-3146573f0c5a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/users/deleteuser"
+					},
+					"response": []
+				},
+				{
+					"name": "Login a User",
+					"_postman_id": "b9888c5e-386f-420d-b7b3-9f6ad738ec85",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"venis@gmail.com\",\r\n    \"password\": \"tada\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/api/v1/users/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User",
+					"_postman_id": "ba747f39-650c-4789-9e8c-e1e087fed3bb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:5000/api/v1/users/getuser"
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "b2b6118f-732a-4fed-b958-00746796a352"
+		}
+	]
+}
