@@ -227,7 +227,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://node-express-todo-app.onrender.com"
+				"url": "https://node-express-todo-app.onrender.com/"
 			},
 			"response": []
 		}
